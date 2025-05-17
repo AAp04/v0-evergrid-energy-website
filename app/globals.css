@@ -1,0 +1,362 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 35 92% 50%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 35 92% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 35 92% 50%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 35 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.section-scroll {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.scroll-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.tesla-button {
+  @apply rounded-md px-6 py-2 font-medium transition-colors duration-300;
+}
+
+.tesla-button-primary {
+  @apply bg-white/90 text-black hover:bg-white;
+}
+
+.tesla-button-secondary {
+  @apply bg-black/70 text-white hover:bg-black/90;
+}
+
+.tesla-button-outline {
+  @apply border-2 border-white/30 bg-transparent text-white hover:border-white/60;
+}
+
+.tesla-nav {
+  @apply fixed top-0 z-50 w-full transition-all duration-300;
+}
+
+.tesla-nav-scrolled {
+  @apply bg-black/80 backdrop-blur-md;
+}
+
+.tesla-nav-transparent {
+  @apply bg-transparent;
+}
+
+.tesla-section {
+  @apply relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden;
+}
+
+.tesla-section-content {
+  @apply container relative z-10 mx-auto px-4 text-center;
+}
+
+.tesla-heading {
+  @apply text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl;
+}
+
+.tesla-subheading {
+  @apply mt-4 text-lg md:text-xl;
+}
+
+.tesla-cta-group {
+  @apply mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row;
+}
+
+.tesla-specs-grid {
+  @apply mt-12 grid grid-cols-2 gap-8 md:grid-cols-4;
+}
+
+.tesla-spec-item {
+  @apply flex flex-col items-center justify-center;
+}
+
+.tesla-spec-value {
+  @apply text-3xl font-medium;
+}
+
+.tesla-spec-label {
+  @apply mt-2 text-sm text-gray-400;
+}
+
+.tesla-calculator {
+  @apply mx-auto mt-12 w-full max-w-3xl rounded-lg bg-white/10 p-6 backdrop-blur-lg;
+}
+
+.tesla-testimonial {
+  @apply mx-auto max-w-2xl rounded-lg bg-white/10 p-6 backdrop-blur-lg;
+}
+
+.tesla-footer {
+  @apply bg-black py-8 text-white;
+}
+
+.tesla-footer-links {
+  @apply flex flex-wrap justify-center gap-6 text-sm text-gray-400;
+}
+
+.tesla-footer-link {
+  @apply hover:text-white;
+}
+
+.tesla-scroll-indicator {
+  @apply absolute bottom-8 left-1/2 z-10 -translate-x-1/2 animate-bounce cursor-pointer;
+}
+
+.tesla-scroll-indicator svg {
+  @apply h-8 w-8 text-white opacity-70;
+}
+
+.tesla-sticky-cta {
+  @apply fixed bottom-0 left-0 z-40 w-full bg-black/80 py-4 backdrop-blur-md;
+}
+
+.tesla-sticky-cta-content {
+  @apply container mx-auto flex items-center justify-between;
+}
+
+.tesla-sticky-cta-text {
+  @apply text-white;
+}
+
+.tesla-sticky-cta-buttons {
+  @apply flex gap-4;
+}
+
+.tesla-image-overlay {
+  @apply absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40;
+}
+
+.tesla-image-container {
+  @apply absolute inset-0 h-full w-full;
+}
+
+.tesla-image-container img {
+  @apply h-full w-full object-cover;
+}
+
+.tesla-section-dark {
+  @apply bg-black text-white;
+}
+
+.tesla-section-light {
+  @apply bg-white text-black;
+}
+
+.tesla-section-gradient {
+  @apply bg-gradient-to-b from-black to-gray-900 text-white;
+}
+
+.tesla-section-image {
+  @apply bg-cover bg-center bg-no-repeat;
+}
+
+.tesla-section-fixed {
+  @apply fixed inset-0 h-screen w-screen;
+}
+
+.tesla-section-relative {
+  @apply relative min-h-screen w-full;
+}
+
+.tesla-section-spacer {
+  @apply h-screen w-full;
+}
+
+.tesla-section-content-left {
+  @apply container relative z-10 mx-auto px-4 text-left;
+}
+
+.tesla-section-content-right {
+  @apply container relative z-10 mx-auto px-4 text-right;
+}
+
+.tesla-section-content-center {
+  @apply container relative z-10 mx-auto px-4 text-center;
+}
+
+.tesla-section-content-bottom {
+  @apply absolute bottom-0 left-0 z-10 w-full px-4 pb-16 text-center;
+}
+
+.tesla-section-content-top {
+  @apply absolute left-0 top-0 z-10 w-full px-4 pt-32 text-center;
+}
+
+.tesla-section-content-middle {
+  @apply absolute left-0 top-1/2 z-10 w-full -translate-y-1/2 px-4 text-center;
+}
+
+.tesla-section-content-middle-left {
+  @apply absolute left-0 top-1/2 z-10 w-full -translate-y-1/2 px-4 text-left;
+}
+
+.tesla-section-content-middle-right {
+  @apply absolute right-0 top-1/2 z-10 w-full -translate-y-1/2 px-4 text-right;
+}
+
+.tesla-section-content-bottom-left {
+  @apply absolute bottom-0 left-0 z-10 w-full px-4 pb-16 text-left;
+}
+
+.tesla-section-content-bottom-right {
+  @apply absolute bottom-0 right-0 z-10 w-full px-4 pb-16 text-right;
+}
+
+.tesla-section-content-top-left {
+  @apply absolute left-0 top-0 z-10 w-full px-4 pt-32 text-left;
+}
+
+.tesla-section-content-top-right {
+  @apply absolute right-0 top-0 z-10 w-full px-4 pt-32 text-right;
+}
+
+.tesla-section-content-middle-center {
+  @apply absolute left-1/2 top-1/2 z-10 w-full -translate-x-1/2 -translate-y-1/2 px-4 text-center;
+}
+
+.tesla-section-content-middle-center-narrow {
+  @apply absolute left-1/2 top-1/2 z-10 w-full max-w-3xl -translate-x-1/2 -translate-y-1/2 px-4 text-center;
+}
+
+.tesla-section-content-middle-center-wide {
+  @apply absolute left-1/2 top-1/2 z-10 w-full max-w-5xl -translate-x-1/2 -translate-y-1/2 px-4 text-center;
+}
+
+.tesla-section-content-middle-center-full {
+  @apply absolute left-1/2 top-1/2 z-10 w-full -translate-x-1/2 -translate-y-1/2 px-4 text-center;
+}
+
+.tesla-section-content-middle-center-container {
+  @apply absolute left-1/2 top-1/2 z-10 w-full max-w-7xl -translate-x-1/2 -translate-y-1/2 px-4 text-center;
+}
+
+.tesla-section-content-middle-center-sm {
+  @apply absolute left-1/2 top-1/2 z-10 w-full max-w-md -translate-x-1/2 -translate-y-1/2 px-4 text-center;
+}
+
+.tesla-section-content-middle-center-lg {
+  @apply absolute left-1/2 top-1/2 z-10 w-full max-w-4xl -translate-x-1/2 -translate-y-1/2 px-4 text-center;
+}
+
+.tesla-section-content-middle-center-xl {
+  @apply absolute left-1/2 top-1/2 z-10 w-full max-w-6xl -translate-x-1/2 -translate-y-1/2 px-4 text-center;
+}
+
+.tesla-section-content-middle-center-2xl {
+  @apply absolute left-1/2 top-1/2 z-10 w-full max-w-7xl -translate-x-1/2 -translate-y-1/2 px-4 text-center;
+}
